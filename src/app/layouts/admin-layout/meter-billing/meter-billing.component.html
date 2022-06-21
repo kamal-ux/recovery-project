@@ -1,0 +1,26 @@
+<div class="main-content">
+    <div class="card pb-2">
+        <form [formGroup]="billForm"(ngSubmit)="save(billForm.valid, billForm.value)" >
+            <div class="row pl-4 pr-4 pt-4 d-flex flex-row">
+                <div class="col-md-10">
+                  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="UHID/AAN/Meter No." type="number" appNumbervalidation formControlName="meterNo" [minLength]="5" required>
+                      <mat-error *ngIf="(billForm.controls['meterNo'].dirty || submitted) || billForm.controls['meterNo'].hasError('required') || billForm.controls['meterNo'].errors">Enter minimum 5 numbers.</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-2 text-right">
+                    <button class="pull-right  btn-sm" color="primary"  type="save" [disabled]="billForm.invalid" mat-raised-button>View Bill</button>
+                 </div>
+            </div>
+            <!-- <div class="row pl-4 pr-4 pb-3">
+                <div class="col-md-3  ml-0 mt-4">
+                  <button class="pull-right butn" color="primary"  type="save" mat-raised-button>
+                    <mat-icon>save</mat-icon>
+                  Submit
+                </button>
+                </div>
+            </div> -->
+        </form>
+      </div>
+</div>

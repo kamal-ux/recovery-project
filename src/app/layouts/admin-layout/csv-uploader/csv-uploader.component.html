@@ -1,0 +1,45 @@
+<div class="main-content">
+  <div class="center">
+    <mat-card>
+      <ngx-file-drop
+        dropZoneLabel="Drop files here"
+        accept=""
+        (onFileDrop)="dropped($event)"
+        (onFileOver)="fileOver($event)"
+        (onFileLeave)="fileLeave($event)"
+        dropZoneLabel="Drop csv file here"
+      >
+        <ng-template
+          ngx-file-drop-content-tmp
+          let-openFileSelector="openFileSelector"
+        >
+          <!-- Optional custom content that replaces the the entire default content. -->
+          Click or drag excel file to this area to upload. &nbsp;&nbsp;
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="openFileSelector()"
+          >
+            <mat-icon>attach_file</mat-icon>Browse File
+          </button>
+        </ng-template>
+      </ngx-file-drop>
+      <div class="upload-table">
+        <table class="table">
+          <!-- <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </thead> -->
+          <tbody class="upload-name-style">
+            <tr *ngFor="let item of files; let i = index">
+              <td>
+                <strong>{{ item.relativePath }}</strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-card>
+  </div>
+</div>

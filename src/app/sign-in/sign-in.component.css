@@ -1,0 +1,37 @@
+mat-card{
+    /* width:500px;
+    left: 30%;
+    top: 10rem; */
+    /* height: 100vh;
+    top: 10rem; */
+    /* Center and scale the image nicely */
+    /* background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+hr {
+    /* border-top: 1px solid #b9b9b9; */
+    border-top: 1px solid #e3dada;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+    margin:0;
+    position:absolute;
+    top:30%;
+    left:50%;
+    width:60%;
+    transform: translate(-50%, -50%);
+    border: solid #fbbc07 1px;
+    box-shadow: 2px 2px 10px -10px rgb(251 188 7), 0px 8px 10px 1px rgb(199 196 188 / 42%), 0px 3px 1000px 2px rgb(244 244 244 / 0%);
+    /* border: solid #1231e040 1px;
+    box-shadow: 2px 2px 10px -10px rgb(22 53 225 / 75%), 0px 8px 10px 1px rgb(144 127 127 / 22%), 0px 3px 1000px 2px rgb(244 244 244 / 0%); */
+    /* box-shadow: 0px 2px 1px -1px #00bcd4, 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%); */
+}
+
+::ng-deep .main-content {
+    height:100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* padding:10% 20% 10%, 20%!important; */
+}

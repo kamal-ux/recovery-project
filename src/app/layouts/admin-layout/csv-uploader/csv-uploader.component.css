@@ -1,0 +1,24 @@
+.my-style{
+    color: black;
+}
+.zone{
+    width: 450px;
+    height: 200px;
+    padding: 2rem;
+    text-align: center;
+    border: dashed 1px #979797;
+    position: relative;
+    margin: 0 auto;
+}
+::ng-deep .ngx-file-drop__drop-zone {
+    border: 2px dotted #3f51b5!important;
+}
+::ng-deep.ngx-file-drop__content {
+    color: #3f51b5!important;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+    border: solid #1231e040 1px;
+    box-shadow: 2px 2px 10px -10px rgb(22 53 225 / 75%), 0px 8px 10px 1px rgb(144 127 127 / 22%), 0px 3px 1000px 2px rgb(244 244 244 / 0%);
+    /* box-shadow: 0px 2px 1px -1px #6c7ddd, 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%); */
+}

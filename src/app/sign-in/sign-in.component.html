@@ -1,0 +1,17 @@
+<div class="main-content">
+<mat-card class="text-center">
+  <h4>Sign-In with Google</h4>
+  <hr>
+    <firebase-ui
+        (signInSuccessWithAuthResult)="successCallback($event)"
+        (signInFailure)="errorCallback($event)"
+        (uiShown)="uiShownCallback()"></firebase-ui>
+    </mat-card>
+  </div>
+    <!-- <mat-toolbar color="primary" *ngIf="isLoggedIn">
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="loggedOut()">
+          <mat-icon>lock</mat-icon>
+        </button>
+      </mat-toolbar> -->
+    

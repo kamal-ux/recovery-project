@@ -1,0 +1,469 @@
+<div class="mat-typography">
+    <table>
+        <tr>
+            <td colspan="2">
+                <img src="../../../../assets/img/delhiBoardLogo.png" width="100%" height="100px" />
+            </td>
+            <td colspan="5">
+                <div class="d-flex justify-content-center"><span class="heading-6"><b>Delhi Jal Board</b></span></div>
+                <div class="d-flex justify-content-center"><b>(Government of NCT of Delhi)</b></div>
+                <div class="d-flex justify-content-center"><b>HQ: Varunalaya Phase ||, Karol Bagh, New Delhi- 110005</b>
+                </div>
+                <div class="d-flex justify-content-center"><span class="bg-yellow">Regular Water Bill</span></div>
+            </td>
+            <td colspan="2" class="pl-2">
+                <img src="../../../../assets/img/swachch.png" width="95%" height="100px" />
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2" colspan="3"class="fnt-medium">
+                <div>
+                    <b>Name:</b> THE EXECUTIVE ENGINEER
+                </div>
+                <div>
+                    <b>Address:</b> U-DIV, C.P.W.D.C.G.O <br>COMPLEX, LODHI ROAD, DELHI
+                </div>
+                <div class="pt-2">
+                    <b>Mobile No.:</b> 9810663310
+                </div>
+                <div>
+                    <b>Zone/MR Code:</b> SZ2/ 888/BULK
+                </div>
+                <div>
+                    <b>Area Code:</b> A-212/Giri Nagar
+                </div>
+                <div>
+                    <b> OLD WCN:</b> 26684
+                </div>
+                <div>
+                    <span class="bg-yellow"> <b>New KNO:</b> 7310731000</span>
+                </div>
+            </td>
+            <td colspan="3"class="fnt-medium">
+                <div>
+                    <b>Consumer Category:</b> CAT ||
+                </div>
+                <div>
+                    <b>Premise Detail:</b> (No of floors-1)
+                </div>
+                <div>
+                    <b>Water Usage.:</b> 41-Miscellaneous
+                </div>
+                <div>
+                    <b>Meter No.:</b> NA
+                </div>
+                <div>
+                    <b>Meter Type (DJB/PVT):</b> PVT
+                </div>
+                <div>
+                    <b>Meter Size (mm):</b> 200
+                </div>
+                <div>
+                    <b>Bill No.:</b> {{billNo}}
+                </div>
+                <div>
+                    <b>Bill Cycle:</b> ZALL(2016-01)
+                </div>
+                <div>
+                    <b>Bill Basis:</b> REGULAR
+                </div>
+            </td>
+            <td colspan="3" style="padding: 0px;" class="fnt-medium">
+        <div class="d-flex justify-content-center"><b>Bill Date</b></div>
+        <div class="d-flex justify-content-center border-bttm">{{billDate | date :'dd-MMM-yyyy'}}</div>
+        <div class="d-flex justify-content-center bg-yellow"><b>Bill Amount(Rs.)</b></div>
+        <div class="d-flex justify-content-center bg-yellow  border-bttm"> {{subTotal | number : '1.2-2'}}</div>
+        <div class="d-flex justify-content-center bg-yellow"><b>Bill Due Date</b></div>
+        <div class="d-flex justify-content-center bg-yellow  border-bttm">{{billDueDate | date :'dd-MMM-yyyy'}}</div>
+        <div class="d-flex justify-content-center"><b>Amount Payable After Due Date(Rs.)</b></div>
+        <div class="d-flex justify-content-center font-72"><b>(5% surcharge will be applicable after due date)</b></div>
+        <div class="d-flex justify-content-center border-bttm"> {{((subTotal * 5)/ 100 ) + subTotal | number :'1.2-2'}}</div>
+        <div class="d-flex justify-content-center"><b> &nbsp; If bill is not paid till bill Due Date-<br>
+            Water connection may be disconnected</b>
+        </div>
+        </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="bg-yellow" style="text-align: center;">
+                <img src="../../../../assets/img/barcode.png" width="60%" height="32px" />
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2" colspan="1"><b>Meter No</b></td>
+            <td rowspan="2"><b>UoM</b></td>
+            <td class="text-center bg-yellow" colspan="2"><b>Current Meter Read</b></td>
+            <td class="text-center" colspan="2"><b>Previous Meter Read</b></td>
+            <td class="text-center bg-yellow" colspan="2"><b>Current Consumption</b></td>
+        </tr>
+        <tr>
+            <td class="text-center"><b>Meter Reading Date</b></td>
+            <td class="text-center"><b>Reading/Meter Status</b></td>
+            <td class="text-center"><b>Meter Reading Date</b></td>
+            <td class="text-center"><b>Reading/Meter Status</b></td>
+            <td class="text-center"><b>Days</b></td>
+            <td class="text-center"><b>Units</b></td>
+        </tr>
+        <tr>
+            <td class="text-center"><b>NA</b></td>
+            <td class="text-center"><b>KL</b></td>
+            <td class="text-center"><b>{{billDetails.receiveTime| date :'dd-MMM-yyyy'}}</b></td>
+            <td class="text-center"><b>/STP</b></td>
+            <td class="text-center"><b> {{oldDate | date :'dd-MMM-yyyy'}}</b></td>
+            <td class="text-center"><b>/STP</b></td>
+            <td class="text-center"><b>30</b></td>
+            <td class="text-center"><b>{{(billDetails.currentLiters - billDetails.prevLiters) |  number: '1.2-2'}}</b></td>
+        </tr>
+        <tr>
+            <td colspan="9" class="bg-yellow">
+                <b>Bill Details:</b><span class="fnt-medium"> Current Period Charges ( {{oldDate | date :'dd-MMM-yyyy'}} to {{billDueDate | date :'dd-MMM-yyyy'}})</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-column">
+                        <b>Applicable Rate Period</b>
+                        <b> {{oldDate | date :'dd-MMM-yyyy' }}to {{billDetails.receiveTime | date :'dd-MMM-yyyy'}}</b>
+                        <b> {{oldDate | date :'dd-MMM-yyyy' }}to {{billDetails.receiveTime | date :'dd-MMM-yyyy'}}</b>
+                        <b> {{oldDate | date :'dd-MMM-yyyy' }}to {{billDetails.receiveTime | date :'dd-MMM-yyyy'}}</b>
+                        <b> {{oldDate | date :'dd-MMM-yyyy' }}to {{billDetails.receiveTime | date :'dd-MMM-yyyy'}}</b>
+                        <b> {{oldDate | date :'dd-MMM-yyyy' }}to {{billDetails.receiveTime | date :'dd-MMM-yyyy'}}</b>
+
+                    </div>
+                    <div class="d-flex flex-column">
+                        <b>Description</b>
+                        <b>Total Consumption Charges</b>
+                        <b>Sewerage Charge (60% of Water Consumption Charge)</b>
+                        <b>Water Cess Charge @ 2 Paise per KL</b>
+                        <b>Service Charge - Consumption > 100KL</b>
+                        <b>Subtotal Bill Amount</b>
+                        <b>Adjustment Details Are Listed Below</b>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <b>Amount(Rs.)</b>
+                        <b>{{ consumptionCharges |  number: '1.2-2'}}</b>
+                        <b>{{sewerageCharge  |  number: '1.2-2'}}</b>
+                        <b>{{ waterCess |  number: '1.2-2'}}</b>
+                        <b>1,317</b>
+                        <b>{{subTotal | number: '1.2-2'}}</b>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="bg-yellow" colspan="5"><b>Arrear, If any (Rs.)</b></td>
+            <td class="text-right  bg-yellow" colspan="4"><b>0</b></td>
+        </tr>
+        <tr>
+            <td class="" colspan="5"><b>Opening Balance/Adjustment, If any (Rs.)</b></td>
+            <td class="text-right" colspan="4"><b>0</b></td>
+        </tr>
+        <tr>
+            <td class="bg-yellow" colspan="5"><b>Total Consolidated Bill Amount Payable (Rs.)</b></td>
+            <td class="text-right  bg-yellow" colspan="4"><b>{{subTotal | number : '1.2-2'}}</b></td>
+        </tr>
+        <tr>
+            <td class="text-center" colspan="2"><b>Last Payment Surcharge (Rs.) </b></td>
+            <td class="text-center" colspan="1"><b> 0</b></td>
+            <td class="text-center" colspan="2"><b>Amount with LPSC(Rs.) </b></td>
+            <td class="text-right" colspan="4"><b>{{subTotal | number : '1.2-2'}}</b></td>
+        </tr>
+        <tr>
+            <td class="bg-yellow text-center" colspan="5"><b>Bill History</b></td>
+            <td class="text-center  bg-yellow" colspan="4"><b>Payment History</b></td>
+        </tr>
+         <tr class="font-72"> 
+            <!-- <td class="text-center" colspan="5" style="padding:0px!important"> -->
+                <td class="padding-0 text-center "><b>Bill Id</b></td>
+                <td class="padding-0 text-center "><b>Bill from Date</b></td>
+                <td class="padding-0 text-center "><b>Bill to Date</b></td>
+                <td class="padding-0 text-center "><b>No. of Days</b></td>
+                <td class="padding-0 text-center "><b>Amount(Rs.)</b>
+                </td>
+
+                <!-- <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;height:42px!important; flex-direction: row;">
+                    <div class="col-md-2 border-rt"><b>Bill Id</b></div>
+                    <div class="col-md-3 border-rt"><b>Bill From Date</b></div>
+                    <div class="col-md-2 border-rt"><b>Bill to Date</b></div>
+                    <div class="col-md-2 border-rt"><b>No. of Days</b></div>
+                    <div class="col-md-2 border-rt"><b>Amount (Rs.)</b></div>
+                    <div class="col-md-1 text-center"><b>Units &nbsp; &nbsp;</b></div>
+                </div> -->
+                <!-- <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;">
+                    <div class="col-md-2 text-center border-rt">731070063235</div>
+                    <div class="col-md-3 text-center border-rt">09-Feb-2016</div>
+                    <div class="col-md-2 text-center border-rt">06-Mar-2016</div>
+                    <div class="col-md-2 text-center border-rt">28</div>
+                    <div class="col-md-2 text-center border-rt">18896641204</div>
+                    <div class="col-md-1 text-center">34070</div>
+                </div> -->
+                <!-- <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;">
+                    <div class="col-md-2 text-center border-rt">731070063235</div>
+                    <div class="col-md-3 text-center border-rt">09-Feb-2016</div>
+                    <div class="col-md-2 text-center border-rt">06-Mar-2016</div>
+                    <div class="col-md-2 text-center border-rt">28</div>
+                    <div class="col-md-2 text-center border-rt">18896641204</div>
+                    <div class="col-md-1 text-center">34070</div>
+                </div> -->
+                <!-- <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;">
+                    <div class="col-md-2 text-center border-rt">731070063235</div>
+                    <div class="col-md-3 text-center border-rt">09-Feb-2016</div>
+                    <div class="col-md-2 text-center border-rt">06-Mar-2016</div>
+                    <div class="col-md-2 text-center border-rt">28</div>
+                    <div class="col-md-2 text-center border-rt">18896641204</div>
+                    <div class="col-md-1 text-center">34070</div>
+                </div> -->
+                <!-- <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;">
+                    <div class="col-md-2 text-center border-rt">731070063235</div>
+                    <div class="col-md-3 text-center border-rt">09-Feb-2016</div>
+                    <div class="col-md-2 text-center border-rt">06-Mar-2016</div>
+                    <div class="col-md-2 text-center border-rt">28</div>
+                    <div class="col-md-2 text-center border-rt">18896641204</div>
+                    <div class="col-md-1 text-center">34070</div>
+                </div> -->
+                <!-- <div class="row d-flex flex-row" style="margin:0px!important;">
+                    <div class="col-md-2 text-center border-rt">731070063235</div>
+                    <div class="col-md-3 text-center border-rt">09-Feb-2016</div>
+                    <div class="col-md-2 text-center border-rt">06-Mar-2016</div>
+                    <div class="col-md-2 text-center border-rt">28</div>
+                    <div class="col-md-2 text-center border-rt">18896641204</div>
+                    <div class="col-md-1 text-center">34070</div>
+                </div> -->
+            <!-- </td> -->
+            <!-- <td class="text-center" colspan="4" style="padding:0px!important;"> -->
+                <td class="padding-0 text-center"><b>Receipt Id</b></td>
+                <td class="padding-0 text-center"><b>Amount (Rs.)</b></td>
+                <td class="padding-0 text-center"><b>Date</b></td>
+                <!-- <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;height:42px!important;">
+                    <div class="col-md-4 border-rt"><b>Receipt Id</b></div>
+                    <div class="col-md-4 border-rt"><b>Amount (Rs.)</b></div>
+                    <div class="col-md-4"><b>Date</b></div>
+                </div>
+                <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;">
+                    <div class="col-md-4 text-center border-rt">731070063235</div>
+                    <div class="col-md-4 text-center border-rt">9397346.00</div>
+                    <div class="col-md-4 text-center">06-Mar-2016</div>
+                </div>
+                <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;">
+                    <div class="col-md-4 text-center border-rt">731070063235</div>
+                    <div class="col-md-4 text-center border-rt">9397346.00</div>
+                    <div class="col-md-4 text-center">06-Mar-2016</div>
+                </div>
+                <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;">
+                    <div class="col-md-4 text-center border-rt">731070063235</div>
+                    <div class="col-md-4 text-center border-rt">9397346.00</div>
+                    <div class="col-md-4 text-center">06-Mar-2016</div>
+                </div>
+                <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;">
+                    <div class="col-md-4 text-center border-rt">731070063235</div>
+                    <div class="col-md-4 text-center border-rt">9397346.00</div>
+                    <div class="col-md-4 text-center">06-Mar-2016</div>
+                </div>
+                <div class="row d-flex flex-row" style="margin:0px!important;">
+                    <div class="col-md-4 text-center border-rt">731070063235</div>
+                    <div class="col-md-4 text-center border-rt">9397346.00</div>
+                    <div class="col-md-4 text-center">06-Mar-2016</div>
+                </div> -->
+            <!-- </td> -->
+        </tr> 
+        <tr class="font-72">
+            <td class="padding-0 text-center ">731070063235</td>
+            <td class="padding-0 text-center ">09-Feb-2016</td>
+            <td class="padding-0 text-center ">06-Mar-2016</td>
+            <td class="padding-0 text-center ">28</td>
+            <td class="padding-0 text-center ">18896641204</td>
+
+            <td class="padding-0 text-center ">731070063235</td>
+            <td class="padding-0 text-center ">9397346.00</td>
+            <td class="padding-0 text-center ">06-Mar-2016</td>
+        </tr>
+        <tr class="font-72">
+            <td class="padding-0 text-center ">731070063235</td>
+            <td class="padding-0 text-center ">09-Feb-2016</td>
+            <td class="padding-0 text-center ">06-Mar-2016</td>
+            <td class="padding-0 text-center ">28</td>
+            <td class="padding-0 text-center ">18896641204</td>
+
+            <td class="padding-0 text-center ">731070063235</td>
+            <td class="padding-0 text-center ">9397346.00</td>
+            <td class="padding-0 text-center ">06-Mar-2016</td>
+        </tr>
+        <tr class="font-72">
+            <td class="padding-0 text-center ">731070063235</td>
+            <td class="padding-0 text-center ">09-Feb-2016</td>
+            <td class="padding-0 text-center ">06-Mar-2016</td>
+            <td class="padding-0 text-center ">28</td>
+            <td class="padding-0 text-center ">18896641204</td>
+
+            <td class="padding-0 text-center ">731070063235</td>
+            <td class="padding-0 text-center ">9397346.00</td>
+            <td class="padding-0 text-center ">06-Mar-2016</td>
+        </tr>
+        <tr class="font-72">
+            <td class="padding-0 text-center ">731070063235</td>
+            <td class="padding-0 text-center ">09-Feb-2016</td>
+            <td class="padding-0 text-center ">06-Mar-2016</td>
+            <td class="padding-0 text-center ">28</td>
+            <td class="padding-0 text-center ">18896641204</td>
+
+            <td class="padding-0 text-center ">731070063235</td>
+            <td class="padding-0 text-center ">9397346.00</td>
+            <td class="padding-0 text-center ">06-Mar-2016</td>
+        </tr>
+
+        <!-- <tr class="font-72">
+            <td class="text-center" colspan="5" style="padding:0px!important">
+                <tr style="border: none;">
+                    <td border="none"><b>Bill Id</b></td>
+                    <td><b>Bill from Date</b></td>
+                    <td><b>Bill to Date</b></td>
+                    <td><b>No. of Days</b></td>
+                    <td><b>Amount(Rs.)</b></td>
+                    <td><b>Units</b></td>
+                </tr>
+                <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;">
+                    <div class="col-md-2 text-center border-rt">731070063235</div>
+                    <div class="col-md-3 text-center border-rt">09-Feb-2016</div>
+                    <div class="col-md-2 text-center border-rt">06-Mar-2016</div>
+                    <div class="col-md-2 text-center border-rt">28</div>
+                    <div class="col-md-2 text-center border-rt">18896641204</div>
+                    <div class="col-md-1 text-center">34070</div>
+                </div>
+                <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;">
+                    <div class="col-md-2 text-center border-rt">731070063235</div>
+                    <div class="col-md-3 text-center border-rt">09-Feb-2016</div>
+                    <div class="col-md-2 text-center border-rt">06-Mar-2016</div>
+                    <div class="col-md-2 text-center border-rt">28</div>
+                    <div class="col-md-2 text-center border-rt">18896641204</div>
+                    <div class="col-md-1 text-center">34070</div>
+                </div>
+                <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;">
+                    <div class="col-md-2 text-center border-rt">731070063235</div>
+                    <div class="col-md-3 text-center border-rt">09-Feb-2016</div>
+                    <div class="col-md-2 text-center border-rt">06-Mar-2016</div>
+                    <div class="col-md-2 text-center border-rt">28</div>
+                    <div class="col-md-2 text-center border-rt">18896641204</div>
+                    <div class="col-md-1 text-center">34070</div>
+                </div>
+                <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;">
+                    <div class="col-md-2 text-center border-rt">731070063235</div>
+                    <div class="col-md-3 text-center border-rt">09-Feb-2016</div>
+                    <div class="col-md-2 text-center border-rt">06-Mar-2016</div>
+                    <div class="col-md-2 text-center border-rt">28</div>
+                    <div class="col-md-2 text-center border-rt">18896641204</div>
+                    <div class="col-md-1 text-center">34070</div>
+                </div>
+                <div class="row d-flex flex-row" style="margin:0px!important;">
+                    <div class="col-md-2 text-center border-rt">731070063235</div>
+                    <div class="col-md-3 text-center border-rt">09-Feb-2016</div>
+                    <div class="col-md-2 text-center border-rt">06-Mar-2016</div>
+                    <div class="col-md-2 text-center border-rt">28</div>
+                    <div class="col-md-2 text-center border-rt">18896641204</div>
+                    <div class="col-md-1 text-center">34070</div>
+                </div>
+            </td>
+            <td class="text-center" colspan="4" style="padding:0px!important;">
+                <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;height:42px!important;">
+                    <div class="col-md-4 border-rt"><b>Receipt Id</b></div>
+                    <div class="col-md-4 border-rt"><b>Amount (Rs.)</b></div>
+                    <div class="col-md-4"><b>Date</b></div>
+                </div>
+                <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;">
+                    <div class="col-md-4 text-center border-rt">731070063235</div>
+                    <div class="col-md-4 text-center border-rt">9397346.00</div>
+                    <div class="col-md-4 text-center">06-Mar-2016</div>
+                </div>
+                <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;">
+                    <div class="col-md-4 text-center border-rt">731070063235</div>
+                    <div class="col-md-4 text-center border-rt">9397346.00</div>
+                    <div class="col-md-4 text-center">06-Mar-2016</div>
+                </div>
+                <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;">
+                    <div class="col-md-4 text-center border-rt">731070063235</div>
+                    <div class="col-md-4 text-center border-rt">9397346.00</div>
+                    <div class="col-md-4 text-center">06-Mar-2016</div>
+                </div>
+                <div class="row d-flex flex-row" style="margin:0px!important; border-bottom: 1px solid grey;">
+                    <div class="col-md-4 text-center border-rt">731070063235</div>
+                    <div class="col-md-4 text-center border-rt">9397346.00</div>
+                    <div class="col-md-4 text-center">06-Mar-2016</div>
+                </div>
+                <div class="row d-flex flex-row" style="margin:0px!important;">
+                    <div class="col-md-4 text-center border-rt">731070063235</div>
+                    <div class="col-md-4 text-center border-rt">9397346.00</div>
+                    <div class="col-md-4 text-center">06-Mar-2016</div>
+                </div>
+            </td>
+        </tr> -->
+        
+        <tr height="40px">
+            <td colspan="5" ></td>
+            <td colspan="4" ></td>
+        </tr>
+        <tr height="40px">
+            <td colspan="9">
+                <div class="text-center heading-3"><b>Important Message</b></div>
+                <div class="text-left font-72"><b>Use of online booster not only increases chance of water contamination but also increases the bill. Please do not use online booster.</b></div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <img src="../../../../assets/img/delhiBoardLogo.png" width="100%" height="100px" />
+            </td>
+            <td colspan="5" class="align-self-start">
+                <div class="d-flex justify-content-center"><span class="heading-6"><b>Delhi Jal Board</b></span></div>
+                <div class="d-flex justify-content-center heading-4"><b>Bill Payment Counter Foll</b></div>
+            </td>
+            <td colspan="2" class="pl-2">
+                <img src="../../../../assets/img/swachch.png" width="95%" height="100px" />
+            </td>
+        </tr>
+        <tr class="text-center fnt-medium">
+            <td colspan="2"><b>New KNO</b></td>
+            <td colspan="1">7310731000</td>
+            <td colspan="1"><b>Name</b></td>
+            <td colspan="2">THE EXECUTIVE ENGINEER</td>
+            <td colspan="1" width="131px;"><B>Bill No.</B></td>
+            <!-- <td colspan="1">731075810990</td> -->
+            <td>{{billNo}}</td>
+        </tr>
+        <tr class="text-center fnt-medium">
+            <td colspan="2"><b>Bill Date</b></td>
+            <td colspan="1">{{billDate | date :'dd-MMM-yyyy' :'dd-MMM-yyyy'}}</td>
+            <td colspan="1"><b>Bill Due Date</b></td>
+            <td colspan="2">{{billDueDate | date :'dd-MMM-yyyy'}}</td>
+            <td colspan="1"  width="131px;"><B>Bill Amount (Rs.)</B></td>
+            <td colspan="1"><b>{{subTotal | number}}</b></td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <div class="d-flex justify-content-between">
+                    <div><b>Bill Amount with LPSC (Rs.):</b></div>
+                    <div><b>1983226146</b></div>
+                </div>
+            </td>
+            <td colspan="3"><b>Payment Date/Amount Paid(Rs.)</b></td>
+            <td colspan="3"><b>Cash/Cheque No./DD No.:</b></td>
+        </tr>
+        <tr>
+            <td colspan="5" class="text-center">
+                <img src="../../../../assets/img/barcode.png" width="60%" height="22px" />
+            </td>
+            <td colspan="2"><b>Name of Bank/Branch</b></td>
+            <td colspan="2"></td>
+        </tr>
+        <tr class="text-center fnt-medium">
+            <td colspan="2"><b>Service Cycle</b></td>
+            <td colspan="1">ZALL</td>
+            <td colspan="1"><b>Service Route</b></td>
+            <td colspan="2"><b>1</b></td>
+            <td colspan="1"  width="131px;"><B>Service Sequence</B></td>
+            <td colspan="1"><b>597</b></td>
+        </tr>
+    </table>
+</div>
+<!-- <mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions> -->

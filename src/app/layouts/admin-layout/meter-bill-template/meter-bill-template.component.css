@@ -1,0 +1,72 @@
+::ng-deep.mat-dialog-container { 
+    padding:4px!important;
+}
+table{
+    border: 1px solid grey;
+    width:100%;
+}
+td {
+    border: 1px solid grey;
+    padding: 0.3rem;
+}
+.heading-6 {
+    font-size: 2rem;
+    line-height: 2.2rem;
+}
+.heading-3 {
+    font-size: 1.2rem;
+}
+.heading-4 {
+    font-size: 1.4rem;
+}
+.bg-yellow {
+    background: yellow;
+}
+.font-72 {
+    font-size: 0.72rem;
+}
+::ng-deep.border-rt {
+    border-right: 1px solid grey;
+}
+::ng-deep.col-md-2, .col-md-3, .col-md-1 {
+    padding-left:0px;
+    padding-right:0px;
+}
+.border-bttm {
+    border-bottom: 1px solid grey;
+}
+.fnt-medium { 
+    font-size: medium;
+}
+.fnt-small{
+    font-size: medium;
+}
+
+.padding-0{
+    padding: 1px 0px 1px 0px!important;
+}
+
+/** Responsive for mobile port (START)*/
+@media only screen and (max-width: 640px) {
+    td {
+    padding: 0.1rem;
+    }
+    .heading-6 {
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
+    b {
+        font-size: 0.5rem;
+    }
+    ::ng-deep.fnt-small{
+        font-size: 0.4rem!important;
+    }
+    .fnt-medium, .bg-yellow { 
+        font-size: 0.35rem;
+  }
+  .font-72 {
+    font-size: 0.4rem;
+}
+}
+
+/** Responsive for mobile port (END)*/
