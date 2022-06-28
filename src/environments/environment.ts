@@ -5,6 +5,7 @@
 
 export const environment = {
   production: false,
+  base_url: "https://recovery-agarwal.herokuapp.com/",
   firebaseConfig: {
     apiKey: "AIzaSyD3DbQiYIduRpAH5FbFmqPVhWPgg3nK2K4",
     authDomain: "recovery-project-c8a94.firebaseapp.com",
