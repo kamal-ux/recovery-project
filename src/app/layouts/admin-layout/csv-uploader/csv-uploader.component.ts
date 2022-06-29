@@ -69,10 +69,10 @@ export class CsvUploaderComponent implements OnInit {
     formData.append('file', this.files[0].fileEntry.name);
     this.uploadService.postUpload(formData).subscribe((res: any) => {
       console.log('res', res);
+      this.files = [];
       alert('file uploaded');
     }, (error) => {
       console.log('error', error);
-      this.files = [];
       alert('something went wrong');
     });
   }
